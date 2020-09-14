@@ -1,10 +1,6 @@
 {
-   "type": "mysql",
-   "host": "127.0.0.1",
-   "port": 3306,
-   "username": "root",
-   "password": "mithil@92",
-   "database": "yashi",
+   "type": "sqlite",
+   "database": "database.sqlite",
    "synchronize": true,
    "logging": false,
    "entities": [
@@ -15,5 +11,10 @@
    ],
    "subscribers": [
       "src/subscriber/**/*.ts"
-   ]
+   ],
+   "cli": {
+      "entitiesDir": "src/entity",
+      "migrationsDir": "src/migration",
+      "subscribersDir": "src/subscriber"
+   }
 }

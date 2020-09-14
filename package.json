@@ -10,9 +10,8 @@
    "dependencies": {
       "csv-parser": "^2.3.3",
       "ftp": "^0.3.10",
-      "mysql": "^2.14.1",
       "reflect-metadata": "^0.1.10",
-      "sqlite3": "^5.0.0",
+      "sqlite3": "^4.0.3",
       "typeorm": "0.2.25"
    },
    "scripts": {

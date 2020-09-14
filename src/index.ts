@@ -12,12 +12,8 @@ const csv = require('csv-parser');
 var fs = require('fs');
 
 createConnection({
-    type: "mysql",
-    host: "127.0.0.1",
-    port: 3306,
-    username: "root",
-    password: "mithil@92",
-    database: "yashi",
+    type: "sqlite",
+    database: "yashi.sqlite",
     entities: [
         __dirname + "/entity/*.ts"
     ],
@@ -53,8 +49,8 @@ createConnection({
                             if((check_date.getMonth() + 1) == 5){
                                 var date = + check_date
                                 date = date/1000
-    
-                                await getConnection()
+                                
+                                await connection
                                     .createQueryBuilder()
                                     .insert()
                                     .into(Cgn)
@@ -70,14 +66,14 @@ createConnection({
                                     });
                     
                                     
-                                    let campaign = await getConnection()
+                                    let campaign = await connection
                                         .createQueryBuilder()
                                         .select("cgn")
                                         .from(Cgn, "cgn")
                                         .where("cgn.yashi_campaign_id = :id", { id: parseInt(row['Campaign ID']) })
                                         .getOne();
                     
-                                    await getConnection()
+                                    await connection
                                         .createQueryBuilder()
                                         .insert()
                                         .into(CgnData)
@@ -100,7 +96,7 @@ createConnection({
                                             }
                                         });
                     
-                                    await getConnection()
+                                    await connection
                                         .createQueryBuilder()
                                         .insert()
                                         .into(Order)
@@ -115,14 +111,14 @@ createConnection({
                                             }
                                         });
                                     
-                                    let order = await getConnection()
+                                    let order = await connection
                                         .createQueryBuilder()
                                         .select("order")
                                         .from(Order, "order")
                                         .where("order.yashi_order_id = :id", { id: parseInt(row['Order ID']) })
                                         .getOne();
                     
-                                    await getConnection()
+                                    await connection
                                         .createQueryBuilder()
                                         .insert()
                                         .into(OrderData)
@@ -145,7 +141,7 @@ createConnection({
                                             }
                                         });
                 
-                                    await getConnection()
+                                    await connection
                                         .createQueryBuilder()
                                         .insert()
                                         .into(Creative)
@@ -160,14 +156,14 @@ createConnection({
                                             }
                                         });
                                     
-                                    let creative = await getConnection()
+                                    let creative = await connection
                                         .createQueryBuilder()
                                         .select("creative")
                                         .from(Creative, "creative")
                                         .where("creative.yashi_creative_id = :id", { id: parseInt(row['Creative ID']) })
                                         .getOne();
                     
-                                    await getConnection()
+                                    await connection
                                         .createQueryBuilder()
                                         .insert()
                                         .into(CreativeData)
@@ -208,4 +204,4 @@ createConnection({
         user: "ftp_integration_test",
         password: "6k0Sb#EXT6jw"
     });
-}).catch(error => console.log(error)).then(process.exit());
+}).catch(error => console.log(error));
