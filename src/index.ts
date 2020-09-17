@@ -9,17 +9,8 @@ import {CreativeData} from "./entity/zz__yashi_creative_data";
 
 const ftp = require("ftp");
 const csv = require('csv-parser');
-var fs = require('fs');
 
-createConnection({
-    type: "sqlite",
-    database: "yashi.sqlite",
-    entities: [
-        __dirname + "/entity/*.ts"
-    ],
-    synchronize: true,
-    logging: false
-}).then(async connection => {
+createConnection().then(async connection => {
     var c = new ftp();
     const advertiser_ids = []
 
