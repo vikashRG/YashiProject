@@ -14,7 +14,7 @@ createConnection().then(async connection => {
     var c = new ftp();
     const advertiser_ids = []
 
-    c.get('Yashi_Advertisers.csv', async function(err: any, stream: any){
+    c.get('Yashi_Advertisers.csv', async function(err, stream){
         if (err) throw err;
 
         await stream.once('close', async function() { c.end(); });
@@ -23,12 +23,12 @@ createConnection().then(async connection => {
         });
     });
 
-    await c.list('/', async function(err: any, files: any){
+    c.list('/', async function(err, files){
         if (err) throw err;
 
         for(let file of files){
             if(file.name != 'Yashi_Advertisers.csv'){
-                await c.get(file.name, async function(err: any, stream: any) {
+                c.get(file.name, async function(err, stream) {
                     if (err) throw err;
             
                     await stream.once('close', async function() { c.end(); });
