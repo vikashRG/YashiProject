@@ -8,7 +8,7 @@ export class Cgn{
     @Column({  length: 255, default: null })
     name: string;
 
-    @Column({ default: null})
+    @Column({ default: null, unique: true})
     yashi_campaign_id: number;
     
     @Column({  default: null })

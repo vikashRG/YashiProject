@@ -7,7 +7,7 @@ export class Creative{
     @PrimaryGeneratedColumn()
     creative_id: number
 
-    @Column({ default: null })
+    @Column({ default: null, unique: true })
     yashi_creative_id: number
 
     @Column({ length: 255, default: null })

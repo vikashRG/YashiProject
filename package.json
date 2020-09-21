@@ -3,9 +3,9 @@
    "version": "0.0.1",
    "description": "Awesome project developed with TypeORM.",
    "devDependencies": {
-      "@types/node": "^8.10.63",
-      "ts-node": "3.3.0",
-      "typescript": "3.3.3333"
+      "@types/node": "^8.10.64",
+      "ts-node": "^3.3.0",
+      "typescript": "^3.9.7"
    },
    "dependencies": {
       "csv-parser": "^2.3.3",
