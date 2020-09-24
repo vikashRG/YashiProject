@@ -7,7 +7,7 @@ export class Order{
     @PrimaryGeneratedColumn()
     order_id: number
 
-    @Column({ precision: 20, default: null})
+    @Column({ precision: 20, default: null, unique: true})
     yashi_order_id: number
 
     @Column({ length: 200, default: null })
